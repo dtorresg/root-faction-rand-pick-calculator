@@ -1,9 +1,8 @@
 import itertools
 import random
 
-_debug = False
-players = 3  # Can be 2, 3, 4, 5, 6
-reps = 10  # Number of times to roll for factions
+_debug = False # * Set to True to print combinations
+players = 3  # * Number of players from 2 to 6
 
 factions = [
     {"name": "Marquise de Cat", "reach": 10},
@@ -37,7 +36,6 @@ def generate_combinations(data_list, key, n, allow_repeats=False):
 
 
 if __name__ == "__main__":
-    # for rep in range(reps):
     while True:
         selection = []
         tempPool = factions.copy()
@@ -81,7 +79,7 @@ if __name__ == "__main__":
         if sum([faction["reach"] for faction in selection]) >= viable[players - 2]:
             # only print last selection
             if True:  # rep == reps-1:
-                print(f"Results after {reps} rolls:")
+                print(f"Results:")
                 for faction in selection:
                     print(f"Player {faction['player']}: {faction['faction']}")
                 print(
